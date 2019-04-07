@@ -3,11 +3,18 @@
     var showModal = function (event) {
         event.preventDefault();
         document.querySelector('#modal-overlay').classList.add('show');
+        var showClassRemove = document.querySelectorAll('.modal');
+        for (var i = 0; i < showClassRemove.length; i++) {
+            showClassRemove[i].classList.remove('show');
+        }
     };
     var modalLinks = document.querySelectorAll('.show-modal');
 
     for (var i = 0; i < modalLinks.length; i++) {
         modalLinks[i].addEventListener('click', showModal);
+        modalLinks[i].addEventListener('click', function () {
+            modalLinks[i].querySelectorAll('.modal').classList.add('show');
+        });
     }
 
     var hideModal = function (event) {
@@ -17,18 +24,17 @@
 
     var closeButtons = document.querySelectorAll('.modal .close');
 
-    for (var j = 0; j < closeButtons.length; j++) {
-        closeButtons[j].addEventListener('click', hideModal);
+    for (var i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', hideModal);
     }
 
     document.querySelector('#modal-overlay').addEventListener('click', hideModal);
 
     var modals = document.querySelectorAll('.modal');
 
-    for (var k = 0; k < modals.length; k++) {
-        modals[k].addEventListener('click', function (event) {
+    for (var i = 0; i < modals.length; i++) {
+        modals[i].addEventListener('click', function (event) {
             event.stopPropagation();
         });
     }
-
 })();
