@@ -7,14 +7,12 @@
         for (var i = 0; i < showClassRemove.length; i++) {
             showClassRemove[i].classList.remove('show');
         }
+
     };
     var modalLinks = document.querySelectorAll('.show-modal');
 
     for (var i = 0; i < modalLinks.length; i++) {
         modalLinks[i].addEventListener('click', showModal);
-        modalLinks[i].addEventListener('click', function () {
-            modalLinks[i].querySelectorAll('.modal').classList.add('show');
-        });
     }
 
     var hideModal = function (event) {
